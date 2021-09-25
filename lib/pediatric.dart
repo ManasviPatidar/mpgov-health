@@ -249,8 +249,11 @@ class _PediatricPageState extends State<PediatricPage> {
                 backgroundColor: Colors.blue,
                 primary: Colors.white,
               ),
-              onPressed: () async => await saveUser(),
-            )
+              onPressed: () async {
+                await saveUser();
+                Get.offNamed('/history');
+              },
+            ),
           ],
         ),
       ),
@@ -259,7 +262,10 @@ class _PediatricPageState extends State<PediatricPage> {
 
   Future<void> saveUser() async {
     var patient = FirebaseFirestore.instance.collection('patient');
-    widget.data.addAll({'answers': answers});
+    widget.data.addAll({
+      'answers': answers,
+      'timeAdded': DateTime.now().toIso8601String(),
+    });
     await patient.add(widget.data);
   }
 

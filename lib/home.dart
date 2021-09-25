@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Form(
         key: _formKeyScreen1,
-        child: Container(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(12),
           child: Column(
             children: [
@@ -54,13 +54,9 @@ class _HomePageState extends State<HomePage> {
                       borderSide: BorderSide(width: 1.5),
                     ),
                   ),
-                  onSaved: (String? val) {
-                    //TODO
-                  },
                   validator: (String? val) {
-                    //TODO
                     if (val == null || val.isEmpty) {
-                      return 'Please enter name!!!';
+                      return 'Please enter your name';
                     }
                   },
                   onChanged: (String? a) {
@@ -143,59 +139,74 @@ class _HomePageState extends State<HomePage> {
                   });
                 },
               ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      child: const Text('Gyno'),
-                      onPressed: () async {
-                        _formKeyScreen1.currentState!.save();
-                        if (!_formKeyScreen1.currentState!.validate()) {
-                          return;
-                        }
-                        Get.toNamed(
-                          '/gyneco',
-                          arguments: {
-                            'name': name,
-                            'gender': gender,
-                            'age': age,
-                            'address': address,
-                            'phone': mobile,
-                          },
-                        );
-                      },
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        primary: Colors.white,
-                      ),
+              const SizedBox(height: 50),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    child: const Text('Gynecology'),
+                    onPressed: () async {
+                      _formKeyScreen1.currentState!.save();
+                      if (!_formKeyScreen1.currentState!.validate()) {
+                        return;
+                      }
+                      _formKeyScreen1.currentState?.reset();
+                      setState(() {
+                        name = null;
+                        age = 0;
+                        gender = null;
+                        address = null;
+                        mobile = null;
+                      });
+                      Get.toNamed(
+                        '/gyneco',
+                        arguments: {
+                          'name': name,
+                          'gender': gender,
+                          'age': age,
+                          'address': address,
+                          'phone': mobile,
+                        },
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      primary: Colors.white,
                     ),
-                    TextButton(
-                      child: const Text('Pedia'),
-                      onPressed: () {
-                        _formKeyScreen1.currentState!.save();
-                        if (!_formKeyScreen1.currentState!.validate()) {
-                          return;
-                        }
-                        Get.toNamed(
-                          '/pedia',
-                          arguments: {
-                            'name': name,
-                            'gender': gender,
-                            'age': age,
-                            'address': address,
-                            'phone': mobile,
-                          },
-                        );
-                      },
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        primary: Colors.white,
-                      ),
-                    )
-                  ],
-                ),
-              )
+                  ),
+                  TextButton(
+                    child: const Text('Pediatric'),
+                    onPressed: () {
+                      _formKeyScreen1.currentState!.save();
+                      if (!_formKeyScreen1.currentState!.validate()) {
+                        return;
+                      }
+                      _formKeyScreen1.currentState?.reset();
+                      setState(() {
+                        name = null;
+                        age = 0;
+                        gender = null;
+                        address = null;
+                        mobile = null;
+                      });
+                      Get.toNamed(
+                        '/pedia',
+                        arguments: {
+                          'name': name,
+                          'gender': gender,
+                          'age': age,
+                          'address': address,
+                          'phone': mobile,
+                        },
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      primary: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

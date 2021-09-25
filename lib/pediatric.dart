@@ -202,7 +202,7 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('12 :- Is he/ she prone to cold?'),
+                  const Text('Q12 :- Is he/ she prone to cold?'),
                   DropdownButton<String>(
                     value: answers[11],
                     items: _yesAndNo(),
@@ -217,7 +217,7 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('13 :- Does he/she get fever very often?'),
+                  const Text('Q13 :- Does he/she get fever very often?'),
                   DropdownButton<String>(
                     value: answers[12],
                     items: _yesAndNo(),
@@ -232,7 +232,7 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('14 :- If he/she is taking mother\'s milk, '
+                  const Text('Q14 :- If he/she is taking mother\'s milk, '
                       'then how many times?'),
                   DropdownButton<String>(
                     value: answers[13],

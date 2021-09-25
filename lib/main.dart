@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mpgov/details.dart';
 import 'package:mpgov/gynecology.dart';
 import 'package:mpgov/history.dart';
 import 'package:mpgov/home.dart';
@@ -18,6 +19,7 @@ void main() {
         '/gyneco': (_) => GynecologyPage(),
         '/pedia': (_) => PediatricPage(),
         '/history': (_) => const HistoryPage(),
+        '/details': (_) => DetailsPage(),
       },
     ),
   );

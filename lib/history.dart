@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({Key? key}) : super(key: key);
@@ -26,10 +27,10 @@ class _HistoryPageState extends State<HistoryPage> {
               itemBuilder: (context, index) {
                 return TextButton(
                   onPressed: () {
-                    //TODO: Get.toNamed('/details', arguments: entries[index]['id']);
+                    Get.toNamed('/details', arguments: entries[index]['id']);
                   },
                   child: ListTile(
-                    title: Text(entries[index]['name']),
+                    title: Text(entries[index]['name'] ?? ''),
                     subtitle: Text(entries[index]['phone'] ?? ''),
                   ),
                 );

@@ -181,14 +181,6 @@ class _HomePageState extends State<HomePage> {
                       if (!_formKeyScreen1.currentState!.validate()) {
                         return;
                       }
-                      _formKeyScreen1.currentState?.reset();
-                      setState(() {
-                        name = null;
-                        age = 0;
-                        gender = null;
-                        address = null;
-                        mobile = null;
-                      });
                       Get.toNamed(
                         '/pedia',
                         arguments: {

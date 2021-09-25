@@ -34,7 +34,7 @@ class _PediatricPageState extends State<PediatricPage> {
                   const Text('Q1 :- What is weight of the child?'),
                   DropdownButton<String>(
                     value: answers[0],
-                    items: _yesAndNo(),
+                    items: _yesAndNo(), //TODO: Change options.
                     onChanged: (a) => _save(a, 0),
                   ),
                   const Divider(),
@@ -78,6 +78,21 @@ class _PediatricPageState extends State<PediatricPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text('Q4 :- What is appetite?'),
+                  DropdownButton<String>(
+                    value: answers[3],
+                    items: _getOptions(['Low', 'Moderate', 'Often']),
+                    onChanged: (a) => _save(a, 3),
+                  ),
+                  const Divider(),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('Q5 :- ?'), //TODO: Add question.
                   DropdownButton<String>(
                     value: answers[3],
                     items: _getOptions(['Low', 'Moderate', 'Often']),
@@ -171,8 +186,8 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                      '11 :- Does the child have loose motion and stomach ache often?'),
+                  const Text('Q11 :- Does the child have loose motion '
+                      'and stomach ache often?'),
                   DropdownButton<String>(
                     value: answers[10],
                     items: _yesAndNo(),
@@ -202,7 +217,7 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('13 :- Does he gets fever very often'),
+                  const Text('13 :- Does he/she get fever very often?'),
                   DropdownButton<String>(
                     value: answers[12],
                     items: _yesAndNo(),
@@ -217,8 +232,8 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                      '14 :- If he/she is taking mother\'s milk then how many times ?'),
+                  const Text('14 :- If he/she is taking mother\'s milk, '
+                      'then how many times?'),
                   DropdownButton<String>(
                     value: answers[13],
                     items: _yesAndNo(),
@@ -233,7 +248,7 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('15 :- Does the child vomit very often?'),
+                  const Text('Q15 :- Does the child vomit very often?'),
                   DropdownButton<String>(
                     value: answers[14],
                     items: _yesAndNo(),

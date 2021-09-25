@@ -94,9 +94,9 @@ class _PediatricPageState extends State<PediatricPage> {
                 children: [
                   const Text('Q5 :- ?'), //TODO: Add question.
                   DropdownButton<String>(
-                    value: answers[3],
+                    value: answers[4],
                     items: _getOptions(['Low', 'Moderate', 'Often']),
-                    onChanged: (a) => _save(a, 3),
+                    onChanged: (a) => _save(a, 4),
                   ),
                   const Divider(),
                 ],

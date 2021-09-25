@@ -171,23 +171,8 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q10 :- ?'), //TODO: Add question.
-                  DropdownButton<String>(
-                    value: answers[9],
-                    items: _yesAndNo(),
-                    onChanged: (a) => _save(a, 9),
-                  ),
-                  const Divider(),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                      'Q10 :- How much water do you take in a day (8-10 glass is good)'),
+                  const Text('Q10 :- How much water do you take in a day? '
+                      '(8-10 glass is good)'),
                   DropdownButton<String>(
                     value: answers[9],
                     items: _getOptions([

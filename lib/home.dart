@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mpgov/drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -150,14 +151,6 @@ class _HomePageState extends State<HomePage> {
                       if (!_formKeyScreen1.currentState!.validate()) {
                         return;
                       }
-                      _formKeyScreen1.currentState?.reset();
-                      setState(() {
-                        name = null;
-                        age = 0;
-                        gender = null;
-                        address = null;
-                        mobile = null;
-                      });
                       Get.toNamed(
                         '/gyneco',
                         arguments: {
@@ -203,6 +196,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      drawer: buildDrawer(context),
     );
   }
 }

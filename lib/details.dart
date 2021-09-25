@@ -70,7 +70,7 @@ class _DetailsPageState extends State<DetailsPage> {
       ];
     } else {
       details = [
-        ['Name', data['name']],
+        ['Name', data['name'] ?? 'NAME'],
         ['Age', (data['age'] ?? 0).toString()],
         ['Phone number', (data['phone'] ?? 'Not added')],
         ['Gender', (data['gender'] ?? 'Not selected')],

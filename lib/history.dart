@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mpgov/drawer.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _HistoryPageState extends State<HistoryPage> {
         if (result.hasData && result.data != null) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text('All Entries'),
+              title: const Text('All Patients'),
             ),
             body: ListView.builder(
               itemCount: entries.length,
@@ -30,18 +31,23 @@ class _HistoryPageState extends State<HistoryPage> {
                     Get.toNamed('/details', arguments: entries[index]['id']);
                   },
                   child: ListTile(
-                    title: Text(entries[index]['name'] ?? ''),
-                    subtitle: Text(entries[index]['phone'] ?? ''),
+                    title: Text(entries[index]['name'] ?? 'Patient'),
+                    subtitle: Text(entries[index]['phone'] ?? 'Phone'),
                   ),
                 );
               },
             ),
+            drawer: buildDrawer(context),
           );
         } else {
-          return const Scaffold(
-            body: Center(
+          return Scaffold(
+            appBar: AppBar(
+              title: const Text('All Patients'),
+            ),
+            body: const Center(
               child: CircularProgressIndicator(),
             ),
+            drawer: buildDrawer(context),
           );
         }
       },

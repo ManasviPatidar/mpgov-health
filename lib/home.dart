@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                    label: Text('Name'),
+                    labelText: 'Name',
                     hintText: 'Enter name.',
                     border: OutlineInputBorder(
                       borderSide: BorderSide(width: 1.5),
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
-                    label: Text('Age'),
+                    labelText: 'Age',
                     hintText: 'Enter age.',
                     border: OutlineInputBorder(
                       borderSide: BorderSide(width: 1.5),
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: const InputDecoration(
-                    label: Text('Address'),
+                    labelText: 'Address',
                     hintText: 'Enter Address.',
                     border: OutlineInputBorder(
                       borderSide: BorderSide(width: 1.5),
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                 child: TextFormField(
                   keyboardType: TextInputType.phone,
                   decoration: const InputDecoration(
-                    label: Text('Phone Number'),
+                    labelText: 'Phone Number',
                     hintText: 'Enter Phone Number.',
                     border: OutlineInputBorder(
                       borderSide: BorderSide(width: 1.5),

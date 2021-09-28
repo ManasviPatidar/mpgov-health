@@ -14,7 +14,7 @@ class GynecologyPage extends StatefulWidget {
 }
 
 class _GynecologyPageState extends State<GynecologyPage> {
-  List<String?> answers = List.filled(10, null);
+  List<String?> answers = List.filled(11, null);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,8 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q1 :- Do you have pain in lower abdomen?'),
+                  const Text(
+                      'Q1 :- क्या आपको पेट के निचले हिस्से में दर्द रहता है?'),
                   DropdownButton<String>(
                     value: answers[0],
                     items: _yesAndNo(),
@@ -46,7 +47,7 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q2 :- Do you often have white discharge?'),
+                  const Text('Q2 :- क्या आपको अक्सर सफेद पानी की समय रहती है?'),
                   DropdownButton<String>(
                     value: answers[1],
                     items: _yesAndNo(),
@@ -61,8 +62,7 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                      'Q3 :- Is there itching in vagina and foul smell in the discharge?'),
+                  const Text('Q3 :- क्या आप की योनि में खुजाली होती है?'),
                   DropdownButton<String>(
                     value: answers[2],
                     items: _yesAndNo(),
@@ -78,7 +78,7 @@ class _GynecologyPageState extends State<GynecologyPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                      'Q4 :- Are the menstruation regular (21 to 35 days)?'),
+                      'Q4 :- योनि से होने वाले रिसाव अथवा  पानी में दुर्गंध आती है?'),
                   DropdownButton<String>(
                     value: answers[3],
                     items: _yesAndNo(),
@@ -94,7 +94,7 @@ class _GynecologyPageState extends State<GynecologyPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                      'Q5 :- Do you have heavy prolonged bleeding during menstruation?'),
+                      'Q5 :- क्या आपका मासिक धर्म नियमित आता है-(21 se 35 din)?'),
                   DropdownButton<String>(
                     value: answers[4],
                     items: _yesAndNo(),
@@ -109,7 +109,8 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q6 :- Do you have scanty menstruation?'),
+                  const Text(
+                      'Q6 :- क्या आप को मासिक धर्म के दौरन लम्बे समय तक भारी ररक्तस्राव  होता है?'),
                   DropdownButton<String>(
                     value: answers[5],
                     items: _yesAndNo(),
@@ -124,8 +125,7 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                      'Q7 :- Do you have excessive stomach pain during menstruation?'),
+                  const Text('Q7 :- क्या आप को मासिक धर्म कम होता है?'),
                   DropdownButton<String>(
                     value: answers[6],
                     items: _yesAndNo(),
@@ -140,7 +140,8 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q8 :- Do you have pain during intercourse?'),
+                  const Text(
+                      'Q8 :- क्या आप को मासिक धर्म के दौरन पेट में अधिक दर्द होता है?'),
                   DropdownButton<String>(
                     value: answers[7],
                     items: _yesAndNo(),
@@ -155,8 +156,7 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                      'Q9 :- (Above 45) Do you have symptoms of menopause like hot flushes, depression or anxiety?'),
+                  const Text('Q9 :- क्या आप को  संभोग करते समय दर्द होता है?'),
                   DropdownButton<String>(
                     value: answers[8],
                     items: _yesAndNo(),
@@ -171,16 +171,31 @@ class _GynecologyPageState extends State<GynecologyPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q10 :- How much water do you take in a day? '
-                      '(8-10 glass is good)'),
+                  const Text(
+                      'Q10 :-क्या आपके पास रजोनिवृति के लक्षण है जैसे गरम फ्लश अवसाद या चिंता?'),
                   DropdownButton<String>(
                     value: answers[9],
+                    items: _yesAndNo(),
+                    onChanged: (a) => _save(a, 9),
+                  ),
+                  const Divider(),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('Q11 :- आप एक दिन में कितना पानी पी लेते हैं'),
+                  DropdownButton<String>(
+                    value: answers[10],
                     items: _getOptions([
                       '2-3 Glasses',
                       '4-6 Glasses',
                       '7-10 Glasses',
                     ]),
-                    onChanged: (a) => _save(a, 9),
+                    onChanged: (a) => _save(a, 10),
                   ),
                   const Divider(),
                 ],
@@ -213,7 +228,7 @@ class _GynecologyPageState extends State<GynecologyPage> {
   }
 
   List<DropdownMenuItem<String>> _yesAndNo() {
-    return _getOptions(['Yes', 'No']);
+    return _getOptions(['हा', 'नहीं']);
   }
 
   List<DropdownMenuItem<String>> _getOptions(List<String> options) {

@@ -14,7 +14,7 @@ class PediatricPage extends StatefulWidget {
 }
 
 class _PediatricPageState extends State<PediatricPage> {
-  List<String?> answers = List.filled(15, null);
+  List<String?> answers = List.filled(16, null);
 
   @override
   Widget build(BuildContext context) {
@@ -31,10 +31,8 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q1 :- What is weight of the child?'),
-                  DropdownButton<String>(
-                    value: answers[0],
-                    items: _yesAndNo(), //TODO: Change options.
+                  const Text('Q1 :- बच्चे की आयु?'),
+                  TextField(
                     onChanged: (a) => _save(a, 0),
                   ),
                   const Divider(),
@@ -46,10 +44,8 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q2 :- What is the height of the child?'),
-                  DropdownButton<String>(
-                    value: answers[1],
-                    items: _yesAndNo(),
+                  const Text('Q2 :- बच्चे का वजन?'),
+                  TextField(
                     onChanged: (a) => _save(a, 1),
                   ),
                   const Divider(),
@@ -61,11 +57,8 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                      'Q3 :- What is the mid arm circumference of the child?'),
-                  DropdownButton<String>(
-                    value: answers[2],
-                    items: _yesAndNo(),
+                  const Text('Q3 :- बच्चे की ऊंचाई?'),
+                  TextField(
                     onChanged: (a) => _save(a, 2),
                   ),
                   const Divider(),
@@ -77,10 +70,14 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q4 :- What is appetite?'),
+                  const Text('Q4 :- बच्चे की ग्रेड?'),
                   DropdownButton<String>(
                     value: answers[3],
-                    items: _getOptions(['Low', 'Moderate', 'Often']),
+                    items: _getOptions([
+                      'अति गंभीर कुपोषित',
+                      'मध्यम गंभीर कुपोषित',
+                      'बहुत कम वजन'
+                    ]),
                     onChanged: (a) => _save(a, 3),
                   ),
                   const Divider(),
@@ -92,10 +89,11 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q5 :- ?'), //TODO: Add question.
+                  const Text(
+                      'Q5 :- बच्चे की भुख का स्तर?'), //TODO: Add question.
                   DropdownButton<String>(
                     value: answers[4],
-                    items: _getOptions(['Low', 'Moderate', 'Often']),
+                    items: _getOptions(['कम', 'मध्यम', 'अच्छा']),
                     onChanged: (a) => _save(a, 4),
                   ),
                   const Divider(),
@@ -107,10 +105,10 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q6 :- How much isilk intake?'),
+                  const Text('Q6 :- क्या बच्चा मिट्टी, चुना खाता है?'),
                   DropdownButton<String>(
                     value: answers[5],
-                    items: _getOptions(['Once ', 'Twice', 'Never']),
+                    items: _yesAndNo(),
                     onChanged: (a) => _save(a, 5),
                   ),
                   const Divider(),
@@ -122,10 +120,10 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q7 :- How many times he/ she takes solid food?'),
+                  const Text('Q7 :- बच्चा कितनी बार दूध पिता है?'),
                   DropdownButton<String>(
                     value: answers[6],
-                    items: _getOptions(['Once ', 'Twice', 'Never']),
+                    items: _getOptions([' एक', 'दो', 'तीन', 'कभी नहीं']),
                     onChanged: (a) => _save(a, 6),
                   ),
                   const Divider(),
@@ -137,10 +135,10 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q8 :- What solid food?'),
+                  const Text('Q8 :- बच्चा कितनी बार थोस अहार लेता है?'),
                   DropdownButton<String>(
                     value: answers[7],
-                    items: _getOptions(['Dal chawal', 'Roti sabji', 'Khichdi']),
+                    items: _getOptions(['एक', 'दो', 'तीन', 'कभी नहीं']),
                     onChanged: (a) => _save(a, 7),
                   ),
                   const Divider(),
@@ -152,10 +150,11 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q9 :- Is there fruit intake?'),
+                  const Text('Q9 :- थोस आहार?'),
                   DropdownButton<String>(
                     value: answers[8],
-                    items: _yesAndNo(),
+                    items: _getOptions(
+                        ['दाल चावल', 'रोटी सब्जी', 'खिचड़ी', 'अन्य']),
                     onChanged: (a) => _save(a, 8),
                   ),
                   const Divider(),
@@ -167,14 +166,10 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q10 :- If yes then how many times in a day?'),
+                  const Text('Q10 :- क्या बच्चा फल खाता है?'),
                   DropdownButton<String>(
                     value: answers[9],
-                    items: _getOptions([
-                      'Once ',
-                      'Twice',
-                      'Sometimes in a week',
-                    ]),
+                    items: _yesAndNo(),
                     onChanged: (a) => _save(a, 9),
                   ),
                   const Divider(),
@@ -186,11 +181,10 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q11 :- Does the child have loose motion '
-                      'and stomach ache often?'),
+                  const Text('Q11 :- कितनी बार फल खाता है?'),
                   DropdownButton<String>(
                     value: answers[10],
-                    items: _yesAndNo(),
+                    items: _getOptions(['एक', 'दो', 'तीन', 'कभी नहीं']),
                     onChanged: (a) => _save(a, 10),
                   ),
                   const Divider(),
@@ -202,7 +196,7 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q12 :- Is he/ she prone to cold?'),
+                  const Text('Q12 :- क्या बच्चे को अक्सर थंडी लगती है?'),
                   DropdownButton<String>(
                     value: answers[11],
                     items: _yesAndNo(),
@@ -217,7 +211,7 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q13 :- Does he/she get fever very often?'),
+                  const Text('Q13 :- क्या बच्चे को अक्सर बुखार आता-है?'),
                   DropdownButton<String>(
                     value: answers[12],
                     items: _yesAndNo(),
@@ -232,11 +226,10 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q14 :- If he/she is taking mother\'s milk, '
-                      'then how many times?'),
+                  const Text('Q14 :- बच्चा मां का दूध कितनी बार पिता है?'),
                   DropdownButton<String>(
                     value: answers[13],
-                    items: _yesAndNo(),
+                    items: _getOptions(['एक', 'दो', 'तीन', 'तीन से ज्यादा']),
                     onChanged: (a) => _save(a, 13),
                   ),
                   const Divider(),
@@ -248,11 +241,27 @@ class _PediatricPageState extends State<PediatricPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Q15 :- Does the child vomit very often?'),
+                  const Text('Q15 :- क्या बच्चा अक्सर उल्टी करता है?'),
                   DropdownButton<String>(
                     value: answers[14],
                     items: _yesAndNo(),
                     onChanged: (a) => _save(a, 14),
+                  ),
+                  const Divider(),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(12, 24, 12, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                      'Q16 :- अगर बच्चा उल्टी करता है तो कितनी बार करता है?'),
+                  DropdownButton<String>(
+                    value: answers[15],
+                    items: _getOptions(['एक', 'दो', 'तीन', 'तीन से ज्यादा']),
+                    onChanged: (a) => _save(a, 15),
                   ),
                   const Divider(),
                 ],
@@ -285,7 +294,7 @@ class _PediatricPageState extends State<PediatricPage> {
   }
 
   List<DropdownMenuItem<String>> _yesAndNo() {
-    return _getOptions(['Yes', 'No']);
+    return _getOptions(['हा', 'नहीं']);
   }
 
   List<DropdownMenuItem<String>> _getOptions(List<String> options) {

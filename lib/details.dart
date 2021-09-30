@@ -76,111 +76,118 @@ class _DetailsPageState extends State<DetailsPage> {
         ['Gender', (data['gender'] ?? 'Not selected')],
         ['Address', (data['address'] ?? 'Not added')],
       ];
-      if (data['answers'].length == 10) {
+      if (data['answers'].length == 11) {
         answers = [
           [
-            'Q1: Do you have pain in lower abdomen?',
+            'Q1: क्या आपको पेट के निचले हिस्से में दर्द रहता है?',
             data['answers'][0] ?? 'Not answered',
           ],
           [
-            'Q2: Do you often have white discharge?',
+            'Q2: क्या आपको अक्सर सफेद पानी की समय रहती है?',
             data['answers'][1] ?? 'Not answered',
           ],
           [
-            'Q3: Is there itching in vagina and foul smell in the discharge?',
+            'Q3: क्या आप की योनि में खुजाली होती है?',
             data['answers'][2] ?? 'Not answered',
           ],
           [
-            'Q4: Are the menstruation regular (21 to 35 days)?',
+            'Q4: योनि से होने वाले रिसाव अथवा  पानी में दुर्गंध आती है?',
             data['answers'][3] ?? 'Not answered',
           ],
           [
-            'Q5: Do you have heavy prolonged bleeding during menstruation?',
+            'Q5: क्या आपका मासिक धर्म नियमित आता है-(21 se 35 din)?',
             data['answers'][4] ?? 'Not answered',
           ],
           [
-            'Q6: Do you have scanty menstruation?',
+            'Q6: क्या आप को मासिक धर्म के दौरन लम्बे समय तक भारी ररक्तस्राव  होता है?',
             data['answers'][5] ?? 'Not answered',
           ],
           [
-            'Q7: Do you have excessive stomach pain during menstruation?',
+            'Q7: क्या आप को मासिक धर्म कम होता है?',
             data['answers'][6] ?? 'Not answered',
           ],
           [
-            'Q8: Do you have pain during intercourse?',
+            'Q8: क्या आप को मासिक धर्म के दौरन पेट में अधिक दर्द होता है?',
             data['answers'][7] ?? 'Not answered',
           ],
           [
-            'Q9: (Above 45) Do you have symptoms of menopause '
-                'like hot flushes, depression or anxiety?',
+            'Q9: क्या आप को  संभोग करते समय दर्द होता है?',
             data['answers'][8] ?? 'Not answered',
           ],
           [
-            'Q10: How much water do you take in a day?',
+            'Q10: क्या आपके पास रजोनिवृति के लक्षण है जैसे गरम फ्लश अवसाद या चिंता?',
             data['answers'][9] ?? 'Not answered',
+          ],
+          [
+            'Q11: आप एक दिन में कितना पानी पी लेते हैं?',
+            data['answers'][10] ?? 'Not answered',
           ],
         ];
       } else {
         answers = [
           [
-            'Q1: What is weight of the child?',
+            'Q1: बच्चे की आयु?',
             data['answers'][0] ?? 'Not answered',
           ],
           [
-            'Q2: What is the height of the child?',
+            'Q2: बच्चे का वजन?',
             data['answers'][1] ?? 'Not answered',
           ],
           [
-            'Q3: What is the mid arm circumference of the child?',
+            'Q3: बच्चे की ऊंचाई?',
             data['answers'][2] ?? 'Not answered',
           ],
           [
-            'Q4: What is appetite?',
+            'Q4: बच्चे की ग्रेड?',
             data['answers'][3] ?? 'Not answered',
           ],
           [
-            'Q5: ',
+            'Q5: बच्चे की भुख का स्तर',
             data['answers'][4] ?? 'Not answered',
           ],
           [
-            'Q6: How much isilk intake?',
+            'Q6: क्या बच्चा मिट्टी, चुना खाता है?',
             data['answers'][5] ?? 'Not answered',
           ],
           [
-            'Q7: How many times he/she takes solid food?',
+            'Q7: बच्चा कितनी बार दूध पिता है?',
             data['answers'][6] ?? 'Not answered',
           ],
           [
-            'Q8: What solid food?',
+            'Q8: बच्चा कितनी बार थोस अहार लेता है?',
             data['answers'][7] ?? 'Not answered',
           ],
           [
-            'Q9: Is there fruit intake?',
+            'Q9: थोस आहार?',
             data['answers'][8] ?? 'Not answered',
           ],
           [
-            'Q10: If yes then how many times in a day?',
+            'Q10: क्या बच्चा फल खाता है?',
             data['answers'][9] ?? 'Not answered',
           ],
           [
-            'Q11: Does the child have loose motion and stomach ache often?',
+            'Q11: कितनी बार फल खाता है?',
             data['answers'][10] ?? 'Not answered',
           ],
           [
-            'Q12: Is he/ she prone to cold?',
+            'Q12: क्या बच्चे को अक्सर थंडी लगती है?',
             data['answers'][11] ?? 'Not answered',
           ],
           [
-            'Q13: Does he/she get fever very often?',
+            'Q13: क्या बच्चे को अक्सर बुखार आता-है?',
             data['answers'][12] ?? 'Not answered',
           ],
           [
-            'Q14: If he/she is taking mother\'s milk then how many times?',
+            'Q14: बच्चा मां का दूध कितनी बार पिता है?',
             data['answers'][13] ?? 'Not answered',
           ],
           [
-            'Q15: Does the child vomit very often?',
-            data['answers'][13] ?? 'Not answered',
+            'Q15: क्या बच्चा अक्सर उल्टी करता है?',
+            data['answers'][14] ?? 'Not answered',
+          ],
+          [
+            'Q16: अगर बच्चा उल्टी करता है तो कितनी बार करता है?',
+            data['answers'][15] ?? 'Not answered',
           ],
         ];
       }
